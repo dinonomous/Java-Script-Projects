@@ -1,0 +1,212 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Marko One', serif;
+    font-family: 'PT Sans', sans-serif;
+}
+body{
+    
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+}
+.box{
+    padding-top: 40px;
+    width: 100%;
+}
+.main-box{
+    backdrop-filter: blur(10px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    min-width: 360px;
+    max-width: 800px;
+    background-color: rgba(109, 165, 192, 0.5);
+    background-size: cover;
+    margin: auto;
+    border-radius: 30px;
+    box-shadow: 0px 0px 30px rgb(25, 25, 25);
+}
+.main-box h2 img{
+    width: 40px;
+    position: relative;
+    top: 10px;
+    left: 5px;
+
+}
+.main-box h2{
+    margin-top: 10px;
+    margin-left: 30PX;
+    color: #041c1f;
+    margin-bottom: 30px;
+}
+.input-box input{
+    width: 100%;
+    text-indent: 20px;
+    height: 100%;
+    border: 2px none;
+    border-radius: 50vw;
+    background-color: #f5d7db;
+    box-shadow: 0px 0px 10px rgba(47, 47, 47, 0.407);
+    color: #041c1f;
+    font-weight: 600;
+    
+}
+.input-box button{
+    box-shadow: -5px 0px 10px rgba(47, 47, 47, 0.154);
+    width: 90px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50vw;
+    border: none;
+    background-color: #bd83b8;
+}
+.input-box{
+    position: relative;
+    width: 85%;
+    height: 40px;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+ul{
+    margin-bottom: 25px;
+}
+
+ul li{
+    list-style: none;
+    position: relative;
+    padding: 12px 8px 12px calc(10% + 40px);
+    cursor: pointer;
+    text-overflow: ellipsis;
+    text-wrap: wrap;
+}
+ul li::before{
+    content: "";
+    position: absolute;
+    background-image: url(images/checkbox.svg);
+    background-position: center;
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    pointer-events: none;
+    top: 30%;
+    left: 10%;
+}
+.checked{
+    text-decoration: line-through;
+    color: #0b4952;
+}
+.checked::before{
+    background-image: url(images/checkbox\(1\).svg);
+}
+li span:last-child {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #6DA5c0;
+    border-radius: 10%;
+    margin-right: 6vw;
+}
+
+li span:last-child:hover {
+    background-color: #072E33;
+}
+
+h5 {
+    position: absolute;
+    right: 50px;
+    margin-right: 6vw;
+    top: 20px;
+}
+
+.styled-text {
+    width: 50%;
+    word-wrap: break-word;
+    display: block;
+}
+.contact img{
+    width: 30px;
+    margin-left: 10px;
+}
+.contact{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(11,73,82,0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 50vh;
+    margin: auto;
+    width: 80%;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+
+}
+.summary{
+    position: relative;
+    backdrop-filter: blur(10px);
+    background-color: rgba(111, 192, 87, 0.624);
+    width: 340px;
+    margin: auto;
+    border-radius: 30px;
+    padding-top: 20px;
+    top: 0;
+    bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.summary p{
+    margin-left: 20px;
+    color: #f5d7db;
+    font-weight: 600;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    text-decoration: solid black 2px;
+}
+@media (max-width: 600px) {
+    body{
+        align-items: start;
+        justify-content: center;
+    }
+    .input-box{
+        width: auto;
+        height: 90px;
+        margin-left: 10px;
+        margin-right: 10px;
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .input-box button{
+        margin-top: 10px;
+        width: 100%;
+        height: 100%;
+        position: static;
+        border-radius: 50vw;}
+    .styled-text {
+        width: 35%;
+        word-wrap: break-word;
+        display: block;
+    }
+    
+}

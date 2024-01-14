@@ -127,7 +127,7 @@ function getmeals(){
 
 let next_times = 1
 function next_meal(now){
-    let meals = ['BREAKFAST', 'LUNCH', 'SNACKS', 'DINNER'];
+    let meals = ['','BREAKFAST', 'LUNCH', 'SNACKS', 'DINNER'];
     let currentIndex = meals.indexOf(meals);
     let nextIndex = (currentIndex + next_times + 1) % meals.length;
     next_times+=1

@@ -5,21 +5,25 @@
     font-family: 'Marko One', serif;
     font-family: 'PT Sans', sans-serif;
 }
-body{
+#body{
     
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+    min-height: 100vh;
 }
 .box{
     padding-top: 40px;
     width: 100%;
+}
+
+.box *,
+.box *:before,
+.box *:after {
+    -webkit-box-sizing: content-box !important;
+    -moz-box-sizing: content-box !important;
+    box-sizing: content-box !important;
 }
 .main-box{
     backdrop-filter: blur(10px);
@@ -34,6 +38,28 @@ body{
     margin: auto;
     border-radius: 30px;
     box-shadow: 0px 0px 30px rgb(25, 25, 25);
+}
+.container{
+    backdrop-filter: blur(10px);
+    background-color: rgba(109, 165, 192, 0.5) !important;
+    border-radius: 30px;
+    box-shadow: 0px 0px 30px rgb(25, 25, 25);
+    margin-bottom: 35px;
+    text-align: center;
+    padding-top: 10px;
+}
+.col{
+    border-radius: 30px;
+    height: 100px;
+    min-width: 300px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(138, 120, 120);
+    margin: 10px !important;
+    color: rgb(255, 255, 255);
+    
 }
 .main-box h2 img{
     width: 40px;
@@ -174,6 +200,7 @@ h5 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 30px;
 }
 .summary p{
     margin-left: 20px;
@@ -182,6 +209,7 @@ h5 {
     margin-bottom: 15px;
     margin-right: 10px;
     text-decoration: solid black 2px;
+    
 }
 @media (max-width: 600px) {
     body{
@@ -209,4 +237,9 @@ h5 {
         display: block;
     }
     
+}
+.buttons{
+    height: 60px !important;
+    background-color: rgba(102, 165, 196, 0.5);
+    border-radius: 15px;
 }

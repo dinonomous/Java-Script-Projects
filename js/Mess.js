@@ -375,19 +375,11 @@ function getmeals() {
     }
 }
 
-function next_meal() {
-    let mealOrder = ['BREAKFAST', 'LUNCH', 'SNACKS', 'DINNER'];
-    let currentIndex = mealOrder.indexOf(currentmeal);
-    let nextIndex = (currentIndex + 1) % mealOrder.length;
-    currentmeal = mealOrder[nextIndex];
-    currentMeals = currentDay.meals[currentmeal];
-    menu_append(currentMeals, currentDay.name, currentmeal, colour);
-
-    if (nextIndex === 3) {
-        currentDayIndex = (currentDayIndex + 1) % daysOfWeek.length;
-        currentDay = daysOfWeek[currentDayIndex];
-    }
-}
+let currentDayIndex = new Date().getDay();
+let currentDay = daysOfWeek[currentDayIndex];
+let currentmeal = getmeals();
+let currentMeals = currentDay.meals[currentmeal];
+menu_append(currentMeals, currentDay.name, currentmeal, colour);
 
 function menu_append(meals,day,currentMeal, colour) {
     let daytext = document.createElement('day-text');
@@ -404,6 +396,56 @@ function menu_append(meals,day,currentMeal, colour) {
     }
 }
 
+let next = document.getElementById('next');
+next.addEventListener('click', function () {
+    next_meal();
+});
+
+let previous = document.getElementById('previous');
+previous.addEventListener('click', function () {
+    previous_meal();
+});
+
+function next_meal() {
+
+    let mealOrder = ['BREAKFAST', 'LUNCH', 'SNACKS', 'DINNER'];
+    let currentIndex = mealOrder.indexOf(currentmeal);
+
+    if (currentIndex === 3) {
+        currentDayIndex = (currentDayIndex + 1) % daysOfWeek.length;
+        currentDay = daysOfWeek[currentDayIndex];
+    }
+
+    let nextIndex = (currentIndex + 1) % mealOrder.length;
+    currentmeal = mealOrder[nextIndex];
+    currentMeals = currentDay.meals[currentmeal];
+    menu_append(currentMeals, currentDay.name, currentmeal, colour);
+
+    if (nextIndex === 3) {
+        currentDayIndex = (currentDayIndex + 1) % daysOfWeek.length;
+        currentDay = daysOfWeek[currentDayIndex];
+    }
+}
+
+function previous_meal() {
+    let mealOrder = ['BREAKFAST', 'LUNCH', 'SNACKS', 'DINNER'];
+    let currentIndex = mealOrder.indexOf(currentmeal);
+
+    if (currentIndex === 0) {
+        // Move to the previous day if the current meal is breakfast
+        currentDayIndex = (currentDayIndex - 1 + daysOfWeek.length) % daysOfWeek.length;
+        currentDay = daysOfWeek[currentDayIndex];
+        
+        // Update current meal to the last meal of the previous day
+        currentmeal = mealOrder[mealOrder.length - 1];
+    } else {
+        // Update current meal to the previous meal
+        currentmeal = mealOrder[currentIndex - 1];
+    }
+
+    currentMeals = currentDay.meals[currentmeal];
+    menu_append(currentMeals, currentDay.name, currentmeal, colour);
+}
 
 function getRandomColor(colours) {
     let randomIndex = Math.floor(Math.random() * colours.length);
@@ -417,14 +459,3 @@ function getRandomColor(colours) {
     }
     return selectedColor;
 }
-
-let next = document.getElementById('next');
-next.addEventListener('click', function () {
-    next_meal();
-});
-
-let currentDayIndex = new Date().getDay();
-let currentDay = daysOfWeek[currentDayIndex];
-let currentmeal = getmeals();
-let currentMeals = currentDay.meals[currentmeal];
-menu_append(currentMeals, currentDay.name, currentmeal, colour);

@@ -1,9 +1,26 @@
-let randimg = Math.floor(Math.random() * 13) + 2;
+let randimg = Math.floor(Math.random() * 11) + 2;
 let body = document.getElementById("body");
-document.body.style.backgroundImage = `url('background/${randimg}.jpg')`;
+document.body.style.backgroundImage = `url('background/${randimg}.webp')`;
 
 let inputBox = document.getElementById("input");
 let lists = document.getElementById("list")
+
+function showLoader() {
+    document.getElementById('loader-bg').style.marginTop = '0%';
+  }
+  
+  function hideLoader() {
+    document.getElementById('loader-bg').style.marginTop = '-100vh';
+  }
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    showLoader();
+    
+    // Simulating a network request
+    setTimeout(() => {
+      hideLoader();
+    }, 1000); 
+  });
 
 function add() {
     if (inputBox.value === "") {
